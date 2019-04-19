@@ -2,14 +2,16 @@
 
 namespace App\Entities;
 
+use App\Entities\Client;
+use App\Tenant\Traits\ForSystem;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Entities\Client;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use ForSystem;
 
     /**
      * The attributes that are mass assignable.
