@@ -13,7 +13,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "prettus/l5-repository": "^2.6",
-        "webpatser/laravel-uuid": "^3.0"
+        "webpatser/laravel-uuid": "^3.0",
+        "venturecraft/revisionable": "1.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
