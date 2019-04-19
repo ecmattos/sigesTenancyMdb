@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Entities\Client;
 use App\Events\Tenant\TenantWasCreated;
 use Illuminate\Http\Request;
 

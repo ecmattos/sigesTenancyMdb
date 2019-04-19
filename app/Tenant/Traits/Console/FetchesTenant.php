@@ -2,7 +2,7 @@
 
 namespace App\Tenant\Traits\Console;
 
-use App\Client;
+use App\Entities\Client;
 
 trait FetchesTenant
 {

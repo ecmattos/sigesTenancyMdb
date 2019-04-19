@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware\Tenant;
 
-use App\Client;
+use App\Entities\Client;
 use App\Events\Tenant\TenantIdentified;
 use Closure;
 

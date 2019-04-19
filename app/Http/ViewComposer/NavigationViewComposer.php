@@ -2,7 +2,7 @@
 
 namespace App\Http\ViewComposer;
 
-use App\Client;
+use App\Entities\Client;
 use Illuminate\View\View;
 
 class NavigationViewComposer 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use App\Tenant\Models\Tenant;
 use App\Tenant\Traits\IsTenant;
