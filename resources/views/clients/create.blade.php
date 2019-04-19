@@ -6,13 +6,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Create Company
+                        Create Client
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('companies.store') }}" method="post">
+                        <form action="{{ route('clients.store') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label class="control-label" for="name">Company Name</label>
+                                <label class="control-label" for="name">Client Name</label>
                                 <input class="form-control{{ $errors->has('name') ? 'is-invalid' : ''}}" type="text" name="name" id="name">
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">

@@ -15,8 +15,8 @@ class CreateTenantConnectionsTable extends Migration
     {
         Schema::create('tenant_connections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->string('database');
             $table->timestamps();
         });

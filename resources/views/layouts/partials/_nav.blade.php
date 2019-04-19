@@ -12,18 +12,18 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true v-pre">
-                        Companies <span class="caret"></span>
+                        Clients <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu" arial-labelledby="navbarDropdown">
-                        @if($companies->count())
-                            @foreach($companies as $company)
-                                <a href="{{ route('tenant.switch', $company) }}" class="dropdown-item">
-                                    {{ $company->name }}
+                        @if($clients->count())
+                            @foreach($clients as $client)
+                                <a href="{{ route('tenant.switch', $client) }}" class="dropdown-item">
+                                    {{ $client->name }}
                                 </a>
                             @endforeach
                             <div class="dropdown-divider"></div>
                         @endif
-                        <a class="dropdown-item" href="{{ route('companies.create') }}">New Company</a>
+                        <a class="dropdown-item" href="{{ route('clients.create') }}">New Client</a>
                     </div>
                 </li>
                 @tenant

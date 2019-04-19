@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware\Tenant;
 
-use App\Company;
+use App\Client;
 use App\Events\Tenant\TenantIdentified;
 use Closure;
 
@@ -23,7 +23,7 @@ class SetTenant
             return $next($request);
         }
 
-        if (!auth()->user()->companies->contains('id', $tenant->id)) {
+        if (!auth()->user()->clients->contains('id', $tenant->id)) {
             return redirect('/home');
         }
 
@@ -34,6 +34,6 @@ class SetTenant
 
     protected function resolveTenant($uuid)
     {
-        return Company::where('uuid', $uuid)->first();
+        return Client::where('uuid', $uuid)->first();
     }
 }

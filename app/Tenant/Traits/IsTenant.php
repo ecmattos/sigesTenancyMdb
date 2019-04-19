@@ -30,6 +30,6 @@ trait IsTenant
 
     public function tenantConnection() 
     {
-        return $this->hasOne(TenantConnection::class, 'company_id', 'id');
+        return $this->hasOne(TenantConnection::class, 'client_id', 'id');
     }
 }

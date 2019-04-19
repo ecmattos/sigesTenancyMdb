@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Company;
+use App\Client;
 
 class TenantController extends Controller
 {
-    public function switch(Company $company)
+    public function switch(Client $client)
     {
-        session()->put('tenant', $company->uuid);
+        session()->put('tenant', $client->uuid);
 
         return redirect('/home');
     }

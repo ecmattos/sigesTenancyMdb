@@ -2,13 +2,13 @@
 
 namespace App\Tenant\Traits\Console;
 
-use App\Company;
+use App\Client;
 
 trait FetchesTenant
 {
     public function tenants($ids = null)
     {
-        $tenants = Company::query();
+        $tenants = Client::query();
 
         if ($ids) {
             $tenants = $tenants->whereIn('id', $ids);

@@ -2,19 +2,19 @@
 
 namespace App\Http\ViewComposer;
 
-use App\Company;
+use App\Client;
 use Illuminate\View\View;
 
 class NavigationViewComposer 
 {
     public function compose(View $view)
     {
-        $companies = Company::all();
+        $clients = Client::all();
 
         if (auth()->check()) {
-            $companies = auth()->user()->companies;
+            $clients = auth()->user()->clients;
         }
 
-        $view->with('companies', $companies);
+        $view->with('clients', $clients);
     }
 }

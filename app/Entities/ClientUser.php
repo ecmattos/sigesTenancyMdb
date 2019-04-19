@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyUser extends Model
+class ClientUser extends Model
 {
    
 }

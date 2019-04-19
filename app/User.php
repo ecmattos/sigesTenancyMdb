@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Company;
+use App\Client;
 
 class User extends Authenticatable
 {
@@ -38,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function companies()
+    public function clients()
     {
-        return $this->belongsToMany(Company::class);
+        return $this->belongsToMany(Client::class);
     }
 }

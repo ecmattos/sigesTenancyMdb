@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands\Tenant;
 
-use App\Company;
+use App\Client;
 use Illuminate\Console\Command;
 use App\Tenant\Database\DatabaseManager;
 use App\Tenant\Traits\Console\FetchesTenant;

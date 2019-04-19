@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
+use App\Client;
 use App\Events\Tenant\TenantWasCreated;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class ClientController extends Controller
 {
     public function create() 
     {
-        return view('companies.create');
+        return view('clients.create');
     }
 
     public function store(Request $request)
     {
-        $company = Company::make([
+        $client = Client::make([
             'name' => $request->name
         ]);
 
-        $request->user()->companies()->save($company);
+        $request->user()->clients()->save($client);
 
-        event(new TenantWasCreated($company));
+        event(new TenantWasCreated($client));
 
-        return redirect()->route('tenant.switch', $company);
+        return redirect()->route('tenant.switch', $client);
     }
 }
