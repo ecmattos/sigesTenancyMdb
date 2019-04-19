@@ -2,7 +2,7 @@
 
 use App\Tenant\Manager;
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::resource('projects', 'Tenant\ProjectController');
 
 
