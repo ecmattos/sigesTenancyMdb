@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use App\Tenant\Traits\ForTenant;
 use Illuminate\Database\Eloquent\Model;

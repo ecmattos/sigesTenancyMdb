@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tenant;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Project;
+use App\Entities\Project;
 
 class ProjectController extends Controller
 {
