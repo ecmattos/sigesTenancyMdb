@@ -24,7 +24,7 @@ trait IsTenant
     protected static function newDatabaseConnection(Tenant $tenant)
     {
         return new TenantConnection([
-            'database' => 'tenancy_' . $tenant->id
+            'database' => 'ekmtek_siges_' . $tenant->id
         ]);
     }
 

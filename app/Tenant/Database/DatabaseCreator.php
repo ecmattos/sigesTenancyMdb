@@ -10,7 +10,7 @@ class DatabaseCreator
     public function create(Tenant $tenant)
     {
         return DB::statement("
-            CREATE DATABASE tenancy_{$tenant->id}
+            CREATE DATABASE ekmtek_siges_{$tenant->id}
         ");
     }
 }
