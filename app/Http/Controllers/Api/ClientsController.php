@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Entities\Client;
-use App\Events\Tenant\TenantWasCreated;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Events\Tenant\TenantWasCreated;
 
-class ClientController extends Controller
+class ClientsController extends Controller
 {
     public function create() 
     {

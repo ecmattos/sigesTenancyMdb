@@ -2,18 +2,18 @@
 
 namespace App\Entities;
 
-use App\Tenant\Traits\ForTenant;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use App\Tenant\Traits\ForTenant;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Venturecraft\Revisionable\Revisionable;
 
 /**
- * Class Customer.
+ * Class MaterialUnit.
  *
  * @package namespace App\Entities;
  */
-class Customer extends Revisionable implements Transformable
+class MaterialUnit extends Revisionable implements Transformable
 {
     use TransformableTrait;
     use ForTenant;
@@ -29,21 +29,8 @@ class Customer extends Revisionable implements Transformable
     #protected $revisionFormattedFields = array('title'  => 'string:<strong>%s</strong>', 'public' => 'boolean:No|Yes', 'deleted_at' => 'isEmpty:Active|Deleted');
     
     protected $revisionFormattedFieldNames = [
-        'cpfcnpj' => 'CPF/CNPJ',
-        'name' => 'Nome',
-        'address' => 'Endereço',
-        'building' => 'Nr predial',
-        'building_comments' => 'Complemento',
-        'neighborhood' => 'Bairro',
-        'zip_code' => 'CEP',
-        'city' => 'Cidade',
-        'state' => 'UF',
-        'phone' => 'Telefone',
-        'mobile' => 'Celular',
-        'email' => 'e-mail', 
-        'comments' => 'Observações',
-        'lat' => 'Latitude',
-        'lng' => 'Longitude',
+        'code' => 'Codigo',
+        'description' => 'Descricao',
         'deleted_at' => 'Excluído'
     ];
     protected $revisionNullString = 'nada';
@@ -51,30 +38,16 @@ class Customer extends Revisionable implements Transformable
 
     public function identifiableName() 
     {
-        return $this->name;
+        return $this->code;
     }
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'cpfcnpj',
-        'name',
-        'address',
-        'building',
-        'building_comments',
-        'zip_code',
-        'neighborhood',
-        'city',
-        'state',
-        'phone',
-        'mobile',
-        'email',
-        'comments',
-        'lat',
-        'lng'
+        'code',
+        'description'
     ];
 
 }

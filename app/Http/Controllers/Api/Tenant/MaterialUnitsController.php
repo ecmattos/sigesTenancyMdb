@@ -1,41 +1,42 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Tenant;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+#use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\CustomerCreateRequest;
-use App\Http\Requests\CustomerUpdateRequest;
-use App\Repositories\CustomerRepository;
-use App\Validators\CustomerValidator;
+use App\Http\Requests\MaterialUnitCreateRequest;
+use App\Http\Requests\MaterialUnitUpdateRequest;
+use App\Repositories\MaterialUnitRepository;
+use App\Validators\MaterialUnitValidator;
+use App\Http\Controllers\Controller;
 
 /**
- * Class CustomersController.
+ * Class MaterialUnitsController.
  *
  * @package namespace App\Http\Controllers;
  */
-class CustomersController extends Controller
+class MaterialUnitsController extends Controller
 {
     /**
-     * @var CustomerRepository
+     * @var MaterialUnitRepository
      */
     protected $repository;
 
     /**
-     * @var CustomerValidator
+     * @var MaterialUnitValidator
      */
     protected $validator;
 
     /**
-     * CustomersController constructor.
+     * MaterialUnitsController constructor.
      *
-     * @param CustomerRepository $repository
-     * @param CustomerValidator $validator
+     * @param MaterialUnitRepository $repository
+     * @param MaterialUnitValidator $validator
      */
-    public function __construct(CustomerRepository $repository, CustomerValidator $validator)
+    public function __construct(MaterialUnitRepository $repository, MaterialUnitValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -49,38 +50,38 @@ class CustomersController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $customers = $this->repository->all();
+        $materialUnits = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $customers,
+                'data' => $materialUnits,
             ]);
         }
 
-        return view('customers.index', compact('customers'));
+        return view('tenant.materialUnits.index', compact('materialUnits'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CustomerCreateRequest $request
+     * @param  MaterialUnitCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(CustomerCreateRequest $request)
+    public function store(MaterialUnitCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $customer = $this->repository->create($request->all());
+            $materialUnit = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Customer created.',
-                'data'    => $customer->toArray(),
+                'message' => 'MaterialUnit created.',
+                'data'    => $materialUnit->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -110,16 +111,16 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        $customer = $this->repository->find($id);
+        $materialUnit = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $customer,
+                'data' => $materialUnit,
             ]);
         }
 
-        return view('customers.show', compact('customer'));
+        return view('materialUnits.show', compact('materialUnit'));
     }
 
     /**
@@ -131,32 +132,32 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        $customer = $this->repository->find($id);
+        $materialUnit = $this->repository->find($id);
 
-        return view('customers.edit', compact('customer'));
+        return view('materialUnits.edit', compact('materialUnit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  CustomerUpdateRequest $request
+     * @param  MaterialUnitUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(CustomerUpdateRequest $request, $id)
+    public function update(MaterialUnitUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $customer = $this->repository->update($request->all(), $id);
+            $materialUnit = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Customer updated.',
-                'data'    => $customer->toArray(),
+                'message' => 'MaterialUnit updated.',
+                'data'    => $materialUnit->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -194,11 +195,11 @@ class CustomersController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Customer deleted.',
+                'message' => 'MaterialUnit deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Customer deleted.');
+        return redirect()->back()->with('message', 'MaterialUnit deleted.');
     }
 }

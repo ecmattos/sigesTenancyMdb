@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Tenant;
+namespace App\Http\Controllers\Api\Tenant;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Entities\Project;
 
-class ProjectController extends Controller
+class ProjectsController extends Controller
 {
     public function index()
     {
